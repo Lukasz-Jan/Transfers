@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import my.bank.Main;
+import my.bank.TransferApplication;
 import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.Set;
@@ -27,7 +27,7 @@ import my.bank.jpa.repos.SaRepo;
 //	mvn failsafe:integration-test
 // executes one goal without executing its entire phase and the preceding phases
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = Main.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TransferApplication.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
 public class AddAccountServiceIT {

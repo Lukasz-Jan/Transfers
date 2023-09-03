@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import my.bank.ActionType;
-import my.bank.OutcomeType;
-import my.bank.TransferRequestType;
 import my.bank.entities.ServiceAgreement;
 import my.bank.entities.Transaction;
+import my.bank.gen.xsd.mappings.transfer.ActionType;
+import my.bank.gen.xsd.mappings.transfer.OutcomeType;
+import my.bank.gen.xsd.mappings.transfer.TransferRequestType;
 import my.bank.jpa.repos.AcctRepo;
 import my.bank.jpa.repos.TransactionRepo;
 

@@ -28,9 +28,10 @@ import org.mockito.MockitoAnnotations;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import my.bank.entities.Account;
+import my.bank.gen.json.mappings.transfer.CurrencyAmount;
+import my.bank.gen.json.mappings.transfer.TransfersystemSchema;
 import my.bank.jpa.repos.AcctRepo;
-import my.bank.transfer.CurrencyAmount;
-import my.bank.transfer.TransfersystemSchema;
+
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AddAccountService_ChangeAmountForAccount_Test {

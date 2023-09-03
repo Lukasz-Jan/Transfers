@@ -1,4 +1,4 @@
-package my.bank;
+package my.bank.jms;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
@@ -30,6 +30,8 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+import my.bank.gen.xsd.mappings.transfer.OutcomeType;
+import my.bank.gen.xsd.mappings.transfer.TransferRequestType;
 
 @Component
 public class MessageListenerAdapter implements MessageListener {

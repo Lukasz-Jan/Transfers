@@ -22,15 +22,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import my.bank.ActionType;
-import my.bank.Main;
-import my.bank.OutcomeType;
-import my.bank.TransferRequestType;
+import my.bank.TransferApplication;
 import my.bank.entities.ServiceAgreement;
+import my.bank.gen.xsd.mappings.transfer.ActionType;
+import my.bank.gen.xsd.mappings.transfer.OutcomeType;
+import my.bank.gen.xsd.mappings.transfer.TransferRequestType;
 import my.bank.jpa.repos.AcctRepo;
 import my.bank.jpa.repos.TransactionRepo;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = Main.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TransferApplication.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
 

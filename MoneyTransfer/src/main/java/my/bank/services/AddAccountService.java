@@ -20,9 +20,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import my.bank.entities.Account;
 import my.bank.entities.ServiceAgreement;
 import my.bank.entities.Transaction;
+import my.bank.gen.json.mappings.transfer.CurrencyAmount;
+import my.bank.gen.json.mappings.transfer.TransfersystemSchema;
 import my.bank.jpa.repos.AcctRepo;
-import my.bank.transfer.CurrencyAmount;
-import my.bank.transfer.TransfersystemSchema;
+
 
 @Service
 public class AddAccountService {
@@ -47,11 +48,11 @@ public class AddAccountService {
 		final InputStream streamWithJson = new FileInputStream(fileWithAccountsData);
 
 		TransfersystemSchema transfer = mapper.readValue(streamWithJson, TransfersystemSchema.class);
-		List<my.bank.transfer.Account> accounts = transfer.getAccounts();
+		List<my.bank.gen.json.mappings.transfer.Account> accounts = transfer.getAccounts();
 
 		Date creationDate = new Date();
 
-		for (my.bank.transfer.Account acc : accounts) {
+		for (my.bank.gen.json.mappings.transfer.Account acc : accounts) {
 
 			logger.info("Adding account: " + acc.getAccountNumber());
 

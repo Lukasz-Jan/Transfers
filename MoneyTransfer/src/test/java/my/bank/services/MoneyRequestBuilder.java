@@ -10,9 +10,10 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import my.bank.ActionType;
-import my.bank.ObjectFactory;
-import my.bank.TransferRequestType;
+import my.bank.gen.xsd.mappings.transfer.ActionType;
+import my.bank.gen.xsd.mappings.transfer.TransferRequestType;
+import my.bank.gen.xsd.mappings.transfer.ObjectFactory;
+
 
 public class MoneyRequestBuilder {
 

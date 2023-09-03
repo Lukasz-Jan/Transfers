@@ -1,4 +1,4 @@
-package my.bank;
+package my.bank.web;
 
 import javax.annotation.PreDestroy;
 import org.slf4j.Logger;

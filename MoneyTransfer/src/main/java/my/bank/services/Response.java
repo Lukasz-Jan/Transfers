@@ -7,14 +7,12 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import my.bank.ObjectFactory;
-import my.bank.OutcomeType;
-import my.bank.TransferRequestType;
-import my.bank.TransferResponseType;
+import my.bank.gen.xsd.mappings.transfer.OutcomeType;
+import my.bank.gen.xsd.mappings.transfer.TransferRequestType;
+import my.bank.gen.xsd.mappings.transfer.ObjectFactory;
+import my.bank.gen.xsd.mappings.transfer.TransferResponseType;
 
 public class Response {
 

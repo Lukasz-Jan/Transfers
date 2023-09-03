@@ -21,22 +21,48 @@
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-xjc-plugin</artifactId>
 				<version>3.3.0</version>
+				
 				<executions>
 					<execution>
-						<id>xjc</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>xsdtojava</goal>
-						</goals>
+						<!--id>generate-sources</id-->
 						<configuration>
-							<!--sourceRoot>${basedir}/target/generated-sources/src/main/java</sourceRoot -->
+							<sourceRoot>${project.build.directory}/generated-sources/fromxsdpojo</sourceRoot>							
 							<xsdOptions>
+
 								<xsdOption>
-									<xsd>${basedir}/src/main/xsd/transfer-request-response.xsd</xsd>
-									<packagename>my.bank</packagename>
+
+									<xsd>${basedir}/src/main/resources/xsd/transfer-request-response.xsd</xsd>
+									<packagename>my.bank.gen.xsd.mappings.transfer</packagename>
 								</xsdOption>
 							</xsdOptions>
 						</configuration>
+						<goals>
+							<goal>xsdtojava</goal>
+						</goals>						
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jsonschema2pojo</groupId>
+				<artifactId>jsonschema2pojo-maven-plugin</artifactId>
+				<version>1.2.0</version>
+				<configuration>
+					<sourceDirectory>${basedir}/src/main/resources/jsonSchema/transfersystem.schema.json</sourceDirectory>
+
+					<!--outputDirectory>${project.build.directory}/generated-sources/</outputDirectory-->
+
+					<targetPackage>my.bank.gen.json.mappings.transfer</targetPackage>
+					<typeMappings>
+						<typeMapping>Double=java.math.BigDecimal</typeMapping>
+					</typeMappings>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+							<!--packagename>my.bank.gen.transferXsdTypes</packagename-->
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
@@ -88,25 +114,7 @@
 				</executions>
 			</plugin>
 
-			<plugin>
-				<groupId>org.jsonschema2pojo</groupId>
-				<artifactId>jsonschema2pojo-maven-plugin</artifactId>
-				<version>1.2.0</version>
-				<configuration>
-					<sourceDirectory>${basedir}/src/main/resources/jsonSchema/transfersystem.schema.json</sourceDirectory>
-					<targetPackage>my.bank.transfer</targetPackage>
-					<typeMappings>
-						<typeMapping>Double=java.math.BigDecimal</typeMapping>
-					</typeMappings>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+
 
 		</plugins>
 	</build>

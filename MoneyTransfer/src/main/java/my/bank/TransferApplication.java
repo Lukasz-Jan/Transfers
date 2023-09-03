@@ -28,9 +28,9 @@ import my.bank.services.AddAccountService;
 
 @SpringBootApplication
 @EnableJpaRepositories(enableDefaultTransactions = false)
-public class Main {
+public class TransferApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(Main.class);
+	private static final Logger log = LoggerFactory.getLogger(TransferApplication.class);
 
 	private final String brokerUrl;
 	private AddAccountService accountSetUp;
@@ -41,7 +41,7 @@ public class Main {
 	}
 
 	@Autowired
-	public Main(@Value("${spring.activemq.broker-url}") String brokerUrl, AddAccountService accountSetUp) {
+	public TransferApplication(@Value("${spring.activemq.broker-url}") String brokerUrl, AddAccountService accountSetUp) {
 
 		this.brokerUrl = brokerUrl;
 		this.accountSetUp = accountSetUp;
@@ -54,7 +54,7 @@ public class Main {
 		System.out.println("args.length: " + args.length);
 		System.out.println("args.length: " + args.length);
 		
-		ConfigurableApplicationContext appCtx = SpringApplication.run(Main.class, args);
+		ConfigurableApplicationContext appCtx = SpringApplication.run(TransferApplication.class, args);
 	}
 
 
