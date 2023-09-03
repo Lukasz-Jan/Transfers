@@ -20,9 +20,9 @@ import my.bank.jpa.repos.AcctRepo;
 import my.bank.jpa.repos.TransactionRepo;
 
 @Component
-public class IncomeService {
+public class TransacionService {
 
-	private static final Logger logger = LoggerFactory.getLogger(IncomeService.class);
+	private static final Logger logger = LoggerFactory.getLogger(TransacionService.class);
 
 	@Autowired
 	private AcctRepo acctRepo;

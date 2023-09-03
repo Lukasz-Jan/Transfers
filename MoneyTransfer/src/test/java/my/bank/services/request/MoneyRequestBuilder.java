@@ -1,4 +1,4 @@
-package my.bank.services;
+package my.bank.services.request;
 
 import java.io.StringWriter;
 import java.io.Writer;

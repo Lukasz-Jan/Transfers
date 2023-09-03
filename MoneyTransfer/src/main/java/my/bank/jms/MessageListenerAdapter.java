@@ -17,8 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 import org.xml.sax.SAXException;
-import my.bank.services.IncomeService;
-import my.bank.services.ResponseService;
+import my.bank.services.TransacionService;
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -32,6 +31,7 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import my.bank.gen.xsd.mappings.transfer.OutcomeType;
 import my.bank.gen.xsd.mappings.transfer.TransferRequestType;
+import my.bank.jms.response.ResponseService;
 
 @Component
 public class MessageListenerAdapter implements MessageListener {
@@ -39,13 +39,13 @@ public class MessageListenerAdapter implements MessageListener {
 	private static final Logger logger = LoggerFactory.getLogger(MessageListenerAdapter.class);
 	private Schema requestResponseSchema;
 
-	private IncomeService reqSrv;
+	private TransacionService trSrv;
 	private ResponseService respSrv;
 
 	@Autowired
-	public MessageListenerAdapter(IncomeService reqSrv, ResponseService respSrv, @Value("${messageXsd}") String requestResponseXsdPath) {
+	public MessageListenerAdapter(TransacionService trSrv, ResponseService respSrv, @Value("${messageXsd}") String requestResponseXsdPath) {
 
-		this.reqSrv = reqSrv;
+		this.trSrv = trSrv;
 		this.respSrv = respSrv;
 
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
@@ -73,7 +73,7 @@ public class MessageListenerAdapter implements MessageListener {
 			if (requestInstance != null) {
 
 				logger.info("Request " + requestInstance.getRequestId() + " being processed");
-				OutcomeType outcome = reqSrv.processRequest(requestInstance);
+				OutcomeType outcome = trSrv.processRequest(requestInstance);
 				respSrv.sendResponseMessage(requestInstance, outcome);
 			} else
 				logger.info("errors occured for request");

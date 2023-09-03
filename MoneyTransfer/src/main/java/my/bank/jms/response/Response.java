@@ -1,4 +1,4 @@
-package my.bank.services;
+package my.bank.jms.response;
 
 import java.io.IOException;
 import java.io.StringWriter;

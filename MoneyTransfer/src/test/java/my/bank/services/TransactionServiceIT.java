@@ -8,7 +8,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Scanner;
-
 import javax.xml.bind.JAXBElement;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,17 +28,18 @@ import my.bank.gen.xsd.mappings.transfer.OutcomeType;
 import my.bank.gen.xsd.mappings.transfer.TransferRequestType;
 import my.bank.jpa.repos.AcctRepo;
 import my.bank.jpa.repos.TransactionRepo;
+import my.bank.services.request.MoneyRequestBuilder;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TransferApplication.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
 
-public class IncomeServiceIT {
+public class TransactionServiceIT {
 
-	private static final Logger logger = LoggerFactory.getLogger(IncomeServiceIT.class);
+	private static final Logger logger = LoggerFactory.getLogger(TransactionServiceIT.class);
 	
 	@Autowired
-	private IncomeService requestSrv;
+	private TransacionService requestSrv;
 	@Autowired
 	private TransactionRepo trRepo;
 	@Autowired
