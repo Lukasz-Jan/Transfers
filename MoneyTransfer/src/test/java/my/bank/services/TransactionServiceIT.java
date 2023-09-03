@@ -51,7 +51,7 @@ public class TransactionServiceIT {
 	@Value("${fileWithAccountsInitPath}") String initializationAccountDataPath;
 
 	/*
-	 * RequestService::processRequest() operation is tested
+	 * TransactionService::processRequest() operation is tested
 	 * Request for account 100056013005 is built of (type TransferRequestType).
 	 * Income for USD is processed (1027.88).
 	 * Operation result is checked (type OutcomeType) and balance.
@@ -90,7 +90,7 @@ public class TransactionServiceIT {
 	}
 	
 	/*
-	 * RequestService::processRequest() operation is tested
+	 * TransactionService::processRequest() operation is tested
 	 * Outcome Request (debit) is built for account 100056013005 of (type TransferRequestType).
 	 * Outcome-USD is processed for 777.55
 	 * Operation result is checked (type OutcomeType) and balance.
@@ -133,7 +133,7 @@ public class TransactionServiceIT {
 	
 	/*
 	 * Account are initialized basing on file example-transfer-systemTest.json.
-	 * RequestService::processRequest() operation is tested
+	 * TransactionService::processRequest() operation is tested
 	 * Outcome Request (debit) is built for account 100056013005.
 	 * Outcome-USD is processed for 54055.55 USD.
 	 * Available funds are only 50025.00 USD;
